@@ -160,6 +160,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $confirmPasswordErr = "Passwords do not match"; $ok = false;
     }
   }
+  if ($ok) {
+    // Redirect to the welcome page
+    header("Location: welcome.html");
+    exit();
+}
 }
 
 function test_input($data) {
@@ -167,12 +172,6 @@ function test_input($data) {
   $data = stripslashes($data);
   $data = htmlspecialchars($data);
   return $data;
-}
-
-if ($ok) {
-    // Redirect to the welcome page
-    header("Location: welcome.html");
-    exit();
 }
 
 ?>
@@ -334,4 +333,3 @@ if ($ok) {
 
 </body>
 </html>
-
